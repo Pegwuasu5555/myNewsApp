@@ -45,7 +45,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             .fillMaxWidth()) {
             Text(text = "Top news")
             Row {
-                Text(text = "First")
+                Text(text = "First news")
                 Text(text = "Second news")
             }
         }
