@@ -18,6 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.mynewsapp.navigation.RootNavigationGraph
+import com.mynewsapp.ui.AllNews
 import com.mynewsapp.ui.theme.MyNewsAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,10 +31,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyNewsAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    Column(modifier = Modifier.padding(innerPadding)) {
+                        val navController : NavHostController = rememberNavController()
+                        RootNavigationGraph(navController = navController)
+                    }
                 }
             }
         }
@@ -67,6 +71,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     MyNewsAppTheme {
-        Greeting("Android")
+        Column {
+            Text(text = "My text")
+        }
+//        Greeting("Android")
     }
 }
