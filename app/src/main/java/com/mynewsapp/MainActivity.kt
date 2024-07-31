@@ -20,13 +20,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.mynewsapp.navigation.RootNavigationGraph
 import com.mynewsapp.ui.AllNews
 import com.mynewsapp.ui.theme.MyNewsAppTheme
 
+private lateinit var auth: FirebaseAuth
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = Firebase.auth
+//        FirebaseApp.initializeApp(this)
         enableEdgeToEdge()
         setContent {
             MyNewsAppTheme {
@@ -72,7 +78,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     MyNewsAppTheme {
         Column {
-            Text(text = "My text")
+             Text(text = "My text")
         }
 //        Greeting("Android")
     }
